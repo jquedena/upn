@@ -5,11 +5,13 @@
  */
 package pe.edu.upn.estructuras;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Estudiante
  */
-public class Semaforo {
+public class Semaforo implements Serializable {
     
     private String nombre;
     private int tiempoVerde;

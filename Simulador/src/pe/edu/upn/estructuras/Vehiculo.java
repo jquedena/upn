@@ -5,11 +5,13 @@
  */
 package pe.edu.upn.estructuras;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Estudiante
  */
-public class Vehiculo {
+public class Vehiculo implements Serializable {
 
     private double velocidad;
     private Unidad unidad;

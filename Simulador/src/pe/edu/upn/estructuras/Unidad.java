@@ -5,11 +5,13 @@
  */
 package pe.edu.upn.estructuras;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Estudiante
  */
-public class Unidad {
+public class Unidad implements Serializable {
  
     private String unidad1;
     private String unidad2;

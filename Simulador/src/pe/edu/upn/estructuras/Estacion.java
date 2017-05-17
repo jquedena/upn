@@ -5,11 +5,13 @@
  */
 package pe.edu.upn.estructuras;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Estudiante
  */
-public class Estacion {
+public class Estacion implements Serializable {
     
     private String nombre;
     private int distancia;
