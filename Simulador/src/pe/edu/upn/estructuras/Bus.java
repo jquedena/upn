@@ -11,7 +11,16 @@ package pe.edu.upn.estructuras;
  */
 public class Bus extends Vehiculo {
     
+    private int nroPasajerosParadosSoportados;
     private int nroPasajerosParados;
+
+    public int getNroPasajerosParadosSoportados() {
+        return nroPasajerosParadosSoportados;
+    }
+
+    public void setNroPasajerosParadosSoportados(int nroPasajerosParadosSoportados) {
+        this.nroPasajerosParadosSoportados = nroPasajerosParadosSoportados;
+    }
 
     public int getNroPasajerosParados() {
         return nroPasajerosParados;

@@ -5,11 +5,15 @@
  */
 package pe.edu.upn.logica;
 
+import pe.edu.upn.estructuras.Bus;
+import pe.edu.upn.estructuras.PasajeroEstacion;
+
 /**
  *
  * @author Estudiante
  */
 public class Modelo {
 
-    
+    private Bus bus;
+    private PasajeroEstacion estaciones;
 }

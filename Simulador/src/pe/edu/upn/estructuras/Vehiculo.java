@@ -16,6 +16,7 @@ public class Vehiculo implements Serializable {
     private double velocidad;
     private Unidad unidad;
     private int nroPasajeros;
+    private int nroAsientosOcupados;
 
     public double getVelocidad() {
         return velocidad;
@@ -39,6 +40,14 @@ public class Vehiculo implements Serializable {
 
     public void setNroPasajeros(int nroPasajeros) {
         this.nroPasajeros = nroPasajeros;
+    }
+
+    public int getNroAsientosOcupados() {
+        return nroAsientosOcupados;
+    }
+
+    public void setNroAsientosOcupados(int nroAsientosOcupados) {
+        this.nroAsientosOcupados = nroAsientosOcupados;
     }
     
 }
