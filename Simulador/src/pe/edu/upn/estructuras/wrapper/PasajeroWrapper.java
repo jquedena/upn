@@ -15,7 +15,7 @@ import pe.edu.upn.estructuras.utilitario.Utilitario;
  */
 public class PasajeroWrapper {
     
-    private Pasajero pasajero;
+    private Pasajero pasajero; 
     private VehiculoWrapper<Bus> vehiculoWrapper;
 
     public Pasajero getPasajero() {
