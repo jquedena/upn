@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/12/2016 05:39:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="pe.edu.upn.encuesta.entidad.LogTemp" table="LOG_TEMP">
+    <id name="id" type="long">
+      <column name="ID" precision="10" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">SQ_LOG_TEMP</param>
+      </generator>
+    </id>
+    <property name="jobInstanceId" type="big_decimal">
+      <column name="JOB_INSTANCE_ID" not-null="true" precision="22" scale="0">
+        <comment>ID PROCESO DE CARGA</comment>
+      </column>
+    </property>
+    <property name="tipoArchivo" type="string">
+      <column length="10" name="TIPO_ARCHIVO" not-null="true">
+        <comment>TIPO DE ARCHIVO LOG (ANEXO1, ANEXO8, ETC)</comment>
+      </column>
+    </property>
+    <property name="fechaRegistro" type="date">
+      <column length="7" name="FECHA_REGISTRO" not-null="true">
+        <comment>FECHA REGISTRO LOG</comment>
+      </column>
+    </property>
+    <property name="descripcionError" type="string">
+      <column length="1000" name="DESCRIPCION_ERROR" not-null="true">
+        <comment>DESCRIPCIÓN DEL LOG</comment>
+      </column>
+    </property>
+    <property name="tipoError" type="string">
+      <column length="10" name="TIPO_ERROR" not-null="true">
+        <comment>TIPO DE ERROR (ADVERTENC, ERROR)</comment>
+      </column>
+    </property>
+  </class>
+</hibernate-mapping>

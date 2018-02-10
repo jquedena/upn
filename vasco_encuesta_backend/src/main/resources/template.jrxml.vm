@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#*
+    String title
+    String subTitle
+    String titleTable
+    String fileTemplate
+    String fileName
+    Map<String, Object> parameters
+    List<Column> columns
+    Collection<?> listObject
+    PageType pageType
+    Margin margin
+
+    Column detaill
+        String caption
+        String field
+        Integer x
+        Integer y
+        Integer width
+        Integer height
+        TextAlign align
+        TypeField typeField
+        String format
+        Integer heightHeader
+        TextAlign alignHeader
+*#
+#set( $bracketOpen = "{" )
+#set( $bracketClose = "}" )
+#set( $pageWidth = $pageType.width)
+#if( $pageType.width == -1)
+    #set ( $pageWidth = 0 )
+    #foreach( $col in $columns )
+        #set ( $pageWidth = $pageWidth + $col.width )
+    #end
+#end
+#set( $columnWidth = $pageWidth - ( $margin.left + $margin.right ) )
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+    name="template"
+    language="java"
+    pageWidth="$pageWidth"
+    pageHeight="$pageType.height"
+    columnWidth="${columnWidth}"
+    leftMargin="$margin.left"
+    rightMargin="$margin.right"
+    topMargin="$margin.top"
+    bottomMargin="$margin.bottom"
+    whenNoDataType="AllSectionsNoDetail"
+    uuid="2205044b-cd7b-4532-8857-3b8c68541cc9">
+    <property name="ireport.zoom" value="1"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <style name="TITULO" forecolor="#00CCFF" hAlign="Center" vAlign="Middle" fontName="Arial" fontSize="22" isBold="true"/>
+    <style name="SUB_TITULO" style="TITULO" fontSize="14" isBold="true"/>
+    <style name="TEXTO1" forecolor="#094FA4" fontName="Arial" fontSize="10" isBold="true"/>
+    <style name="TEXTO2" style="TEXTO1" fontSize="6"/>
+    <style name="TEXTO3" forecolor="#423675" fontName="Arial" fontSize="6"/>
+    <parameter name="TITLE" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["Titulo"]]></defaultValueExpression>
+    </parameter>
+    <parameter name="SUB_TITLE" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["Sub Titulo"]]></defaultValueExpression>
+    </parameter>
+    <parameter name="TITLE_TABLE" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["Titulo Tabla"]]></defaultValueExpression>
+    </parameter>
+    <parameter name="IMAGE" class="java.lang.String" isForPrompting="false">
+    </parameter>
+#configParameters()
+#configFields()
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="136" splitType="Stretch">
+            <image>
+                <reportElement x="0" y="0" width="${columnWidth}" height="50" uuid="39918b74-166c-4398-bbcb-c98406fc2db9"/>
+                <imageExpression><![CDATA[$P${bracketOpen}IMAGE${bracketClose}]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement style="TITULO" x="0" y="54" width="${columnWidth}" height="28" uuid="a8a00546-0bed-4a96-b063-4aa446fd941a"/>
+                <textElement>
+                    <font size="20"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P${bracketOpen}TITLE${bracketClose}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="SUB_TITULO" x="0" y="88" width="${columnWidth}" height="20" uuid="745e0b79-1dfe-437c-a5a5-f6cbfd64bbf7"/>
+                <textFieldExpression><![CDATA[$P${bracketOpen}SUB_TITLE${bracketClose}]]></textFieldExpression>
+            </textField>
+#*
+#set( $titleTableWidth = $columnWidth - 42 - 83)
+            <textField>
+                <reportElement style="TEXTO1" x="0" y="120" width="${titleTableWidth}" height="16" uuid="f6045e2c-2a99-4cac-ad59-1599f64055a4"/>
+                <textElement>
+                    <font size="13"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P${bracketOpen}TITLE_TABLE${bracketClose}]]></textFieldExpression>
+            </textField>
+#set( $xF = $titleTableWidth)
+            <staticText>
+                <reportElement style="TEXTO2" x="${xF}" y="120" width="42" height="16" uuid="d1d5d642-e9f6-45ee-a12c-5e7aa1a7988b"/>
+                <textElement>
+                    <font size="13"/>
+                </textElement>
+                <text><![CDATA[Fecha y Hora:]]></text>
+            </staticText>
+#set( $xF = $xF + 42)
+            <textField pattern="dd/MM/yyyy HH:mm:ss">
+                <reportElement style="TEXTO2" x="${xF}" y="120" width="83" height="16" uuid="3e960b2b-afa0-4fc5-8dac-15ee88dfa318"/>
+                <textElement textAlignment="Right">
+                    <font size="13"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+            </textField>
+*#
+        </band>
+    </title>
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <printWhenExpression><![CDATA[$V${bracketOpen}PAGE_NUMBER${bracketClose}==1]]></printWhenExpression>
+    #configHeaders()
+    </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+#configTextFields()
+    </band>
+    </detail>
+    <!--
+    <pageFooter>
+        <band height="10" splitType="Stretch">
+#set( $xPage = $columnWidth - 23 - 21 + 1 )
+#set( $xPageCount = $columnWidth - 21 )
+            <textField>
+                <reportElement style="TEXTO3" x="${xPage}" y="0" width="23" height="10" uuid="7994f6be-93bb-45d2-bb5a-51daf5385722"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$V${bracketOpen}PAGE_NUMBER${bracketClose}+" /"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement style="TEXTO3" x="${xPageCount}" y="0" width="21" height="10" uuid="c6897ac2-77ac-467d-bec9-e58ebd6d0dbb"/>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[" " + $V${bracketOpen}PAGE_NUMBER${bracketClose}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    -->
+</jasperReport>
+
+#macro( configParameters )
+#foreach( $col in $columns )
+    <parameter name="$col.field" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["Columna $foreach.count"]]></defaultValueExpression>
+    </parameter>
+#end
+#end
+
+#macro( configFields )
+#foreach( $col in $columns )
+    <field name="$col.field" class="$col.typeField"/>
+#end
+#end
+
+#macro( configHeaders )
+#set ( $x = 0 )
+#set ( $i = 1 )
+#foreach( $col in $columns )
+        <textField isStretchWithOverflow="true">
+                <reportElement
+                    mode="Opaque"
+                    isPrintInFirstWholeBand="false"
+                    x="${x}"
+                    y="0"
+                    width="$col.width"
+                    height="$col.heightHeader"
+                    forecolor="#FFFFFF"
+                    backcolor="#094FA4"
+                    uuid="$col.uuid" />
+                <textElement textAlignment="$col.alignHeader.textAlign" verticalAlignment="$col.alignHeader.verticalAlign"/>
+                <textFieldExpression><![CDATA[$P${bracketOpen}$col.field${bracketClose}]]></textFieldExpression>
+            </textField>
+    #set ( $x = $x + $col.width )
+    #set ( $i = $i + 1 )
+#end
+#end
+
+#macro( configTextFields )
+#set ( $quote = 0 )
+#set ( $x = 0 )
+#set ( $i = 1 )
+#foreach( $col in $columns )
+    #set ( $pattern = "" )
+    #if( $col.format != "")
+        #set ( $pattern = "pattern='" + $col.format + "'" )
+    #end
+        <textField isStretchWithOverflow="true" isBlankWhenNull="true" ${pattern} >
+                <reportElement mode="Transparent"
+                    x="${x}"
+                    y="0"
+                    width="$col.width"
+                    height="$col.height"
+                    forecolor="#094FA4"
+                    uuid="$col.uuid" />
+                <box>
+                    <pen lineColor="#00CCFF"/>
+                    <topPen lineWidth="0.5" lineColor="#00CCFF"/>
+                    <leftPen lineWidth="0.5" lineColor="#00CCFF"/>
+                    <bottomPen lineWidth="0.5" lineColor="#00CCFF"/>
+                    <rightPen lineWidth="0.5" lineColor="#00CCFF"/>
+                </box>
+                <textElement  textAlignment="$col.align.textAlign" verticalAlignment="$col.align.verticalAlign" markup="none" >
+                     <font fontName="Arial" size="9"/>
+                     <paragraph lineSpacing="Single"/>
+                 </textElement>
+                <textFieldExpression><![CDATA[$F${bracketOpen}${col.field}${bracketClose}]]></textFieldExpression>
+            </textField>
+    #set ( $x = $x + $col.width )
+    #set ( $i = $i + 1 )
+#end
+#end

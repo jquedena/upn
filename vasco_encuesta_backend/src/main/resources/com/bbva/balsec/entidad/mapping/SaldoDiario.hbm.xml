@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/12/2016 05:39:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="pe.edu.upn.encuesta.entidad.SaldoDiario" table="SALDO_DIARIO">
+    <id name="id" type="long">
+      <column name="ID" precision="10" scale="0"/>
+      <generator class="sequence">
+        <param name="sequence">SQ_SALDO_DIARIO</param>
+      </generator>
+    </id>
+    <property name="jobInstanceId" type="big_decimal">
+      <column name="JOB_INSTANCE_ID" precision="22" scale="0">
+        <comment>ID PROCESO DE CARGA</comment>
+      </column>
+    </property>
+    <property name="cuentaContable" type="string">
+      <column length="20" name="CUENTA_CONTABLE">
+        <comment>CUENTA CONTABLE</comment>
+      </column>
+    </property>
+    <property name="descripcionCuentaContable" type="string">
+      <column length="40" name="DESCRIPCION_CUENTA_CONTABLE">
+        <comment>DESCRIPCION CUENTA CONTABLE</comment>
+      </column>
+    </property>
+    <property name="saldoCuenta" type="big_decimal">
+      <column name="SALDO_CUENTA" precision="18">
+        <comment>SALDO CUENTA</comment>
+      </column>
+    </property>
+    <property name="indicadorDetalle" type="java.lang.Character">
+      <column length="1" name="INDICADOR_DETALLE">
+        <comment>INDICADOR DE DETALLE</comment>
+      </column>
+    </property>
+    <property name="periodo" type="date">
+      <column length="7" name="PERIODO">
+        <comment>PERIODO</comment>
+      </column>
+    </property>
+  </class>
+</hibernate-mapping>

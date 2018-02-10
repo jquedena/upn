@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemaQuery xmlns="http://www.indra.com.pe/schemaQuery" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.indra.com.pe/schemaQuery schemas.xsd ">
+    
+    <queryReuse nombre="listarInstanciasInternal">
+    <![CDATA[
+        SELECT
+            A.JOB_INSTANCE_ID
+          , A.VERSION
+          , A.JOB_NAME
+          , A.JOB_KEY
+          , B.JOB_EXECUTION_ID
+          , B.VERSION VERSION_JOB_EXECUTION
+          , B.CREATE_TIME
+          , B.START_TIME
+          , B.END_TIME
+          , B.STATUS
+          , B.EXIT_CODE
+          , B.EXIT_MESSAGE
+          , B.LAST_UPDATED
+        FROM ${PREFIX}.BATCH_JOB_INSTANCE A
+        INNER JOIN (
+            SELECT MAX(JOB_INSTANCE_ID) JOB_INSTANCE_ID
+            FROM ${PREFIX}.BATCH_JOB_INSTANCE
+            WHERE ( INSTR(:P_JOB_NAME, '|' || JOB_NAME || '|') > 0 OR :P_JOB_NAME='-1' )
+              AND ( JOB_INSTANCE_ID=:P_JOB_INSTANCE_ID OR :P_JOB_INSTANCE_ID=-1 )
+            GROUP BY JOB_NAME
+        ) C ON A.JOB_INSTANCE_ID=C.JOB_INSTANCE_ID
+        LEFT JOIN ${PREFIX}.BATCH_JOB_EXECUTION B ON A.JOB_INSTANCE_ID=B.JOB_INSTANCE_ID
+        WHERE 
+          ( B.JOB_EXECUTION_ID=:P_JOB_EXECUTION_ID OR :P_JOB_EXECUTION_ID=-1 ) AND
+          ( B.EXIT_CODE=:P_EXIT_CODE OR :P_EXIT_CODE='-1' ) AND
+          (
+            TRUNC(B.CREATE_TIME) >= TRUNC(TO_DATE(:P_CREATE_TIME_1, 'DD/MM/YYYY')) AND 
+            TRUNC(B.CREATE_TIME) <= TRUNC(TO_DATE(:P_CREATE_TIME_2, 'DD/MM/YYYY')) 
+          )
+        ORDER BY A.JOB_NAME
+    ]]>
+    </queryReuse>
+    
+    <query nombre="listarInstancias">
+    <![CDATA[
+        SELECT
+            BX.JOB_INSTANCE_ID
+          , BX.VERSION
+          , BX.JOB_NAME
+          , BX.JOB_KEY
+          , BX.JOB_EXECUTION_ID
+          , BX.VERSION_JOB_EXECUTION
+          , BX.CREATE_TIME
+          , BX.START_TIME
+          , BX.END_TIME
+          , BX.STATUS
+          , BX.EXIT_CODE
+          , BX.EXIT_MESSAGE
+          , BX.LAST_UPDATED
+          , C.TYPE_CD
+          , C.KEY_NAME
+          , C.STRING_VAL
+          , C.DATE_VAL
+          , C.LONG_VAL
+          , C.DOUBLE_VAL
+          , C.IDENTIFYING
+          , D.STEP_EXECUTION_ID
+          , D.VERSION  VERSION_STEP_NAME
+          , D.STEP_NAME
+          , D.START_TIME START_TIME_STEP
+          , D.END_TIME END_TIME_STEP
+          , D.STATUS STATUS_STEP
+          , D.COMMIT_COUNT
+          , D.READ_COUNT
+          , D.FILTER_COUNT
+          , D.WRITE_COUNT
+          , D.READ_SKIP_COUNT
+          , D.WRITE_SKIP_COUNT
+          , D.PROCESS_SKIP_COUNT
+          , D.ROLLBACK_COUNT
+          , D.EXIT_CODE EXIT_CODE_STEP
+          , D.EXIT_MESSAGE EXIT_MESSAGE_STEP
+          , D.LAST_UPDATED LAST_UPDATED_STEP
+        FROM (
+            ${listarInstanciasInternal} 
+        ) BX
+        LEFT JOIN ${PREFIX}.BATCH_JOB_EXECUTION_PARAMS C ON BX.JOB_EXECUTION_ID=C.JOB_EXECUTION_ID
+        LEFT JOIN ${PREFIX}.BATCH_STEP_EXECUTION D ON BX.JOB_EXECUTION_ID=D.JOB_EXECUTION_ID
+        ORDER BY BX.JOB_INSTANCE_ID DESC, BX.JOB_EXECUTION_ID, D.STEP_EXECUTION_ID, C.KEY_NAME
+    ]]>
+    </query>
+    
+    <query nombre="listarInstanciasPaginado">
+    <![CDATA[
+        SELECT
+            BX.JOB_INSTANCE_ID
+          , BX.VERSION
+          , BX.JOB_NAME
+          , BX.JOB_KEY
+          , BX.JOB_EXECUTION_ID
+          , BX.VERSION_JOB_EXECUTION
+          , BX.CREATE_TIME
+          , BX.START_TIME
+          , BX.END_TIME
+          , BX.STATUS
+          , BX.EXIT_CODE
+          , BX.EXIT_MESSAGE
+          , BX.LAST_UPDATED
+          , C.TYPE_CD
+          , C.KEY_NAME
+          , C.STRING_VAL
+          , C.DATE_VAL
+          , C.LONG_VAL
+          , C.DOUBLE_VAL
+          , C.IDENTIFYING
+          , D.STEP_EXECUTION_ID
+          , D.VERSION  VERSION_STEP_NAME
+          , D.STEP_NAME
+          , D.START_TIME START_TIME_STEP
+          , D.END_TIME END_TIME_STEP
+          , D.STATUS STATUS_STEP
+          , D.COMMIT_COUNT
+          , D.READ_COUNT
+          , D.FILTER_COUNT
+          , D.WRITE_COUNT
+          , D.READ_SKIP_COUNT
+          , D.WRITE_SKIP_COUNT
+          , D.PROCESS_SKIP_COUNT
+          , D.ROLLBACK_COUNT
+          , D.EXIT_CODE EXIT_CODE_STEP
+          , D.EXIT_MESSAGE EXIT_MESSAGE_STEP
+          , D.LAST_UPDATED LAST_UPDATED_STEP
+        FROM (
+            SELECT * FROM (
+                SELECT /*+FIRST_ROWS(50)*/ ax.*, rownum rnum
+                FROM ( ${listarInstanciasInternal} ) ax
+                WHERE rownum <= :P_LAST)
+            WHERE rnum >= :P_FIRST
+        ) BX
+        LEFT JOIN ${PREFIX}.BATCH_JOB_EXECUTION_PARAMS C ON BX.JOB_EXECUTION_ID=C.JOB_EXECUTION_ID
+        LEFT JOIN ${PREFIX}.BATCH_STEP_EXECUTION D ON BX.JOB_EXECUTION_ID=D.JOB_EXECUTION_ID
+        ORDER BY BX.JOB_INSTANCE_ID DESC, BX.JOB_EXECUTION_ID, D.STEP_EXECUTION_ID, C.KEY_NAME
+    ]]>
+    </query>
+    
+    <query nombre="contarInstancias">
+        SELECT count(1) FROM ( ${listarInstanciasInternal} ) a
+    </query>
+</schemaQuery>
