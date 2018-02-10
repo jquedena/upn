@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncuestaComponent implements OnInit {
 
+  isNavbarCollapsed: boolean;
+
   constructor() { }
 
   ngOnInit() {

@@ -8,8 +8,6 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 })
 export class InicioSesionComponent implements OnInit {
 
-  hide = true;
-
   constructor() { }
 
   ngOnInit() {

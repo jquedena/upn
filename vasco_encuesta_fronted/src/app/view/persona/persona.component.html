@@ -1,3 +1,30 @@
-<p>
-  persona works!
-</p>
+<div class="container">
+  <div class="form-group">
+    <label for="txtCodigo">Código:</label>
+    <input type="text" class="form-control" id="txtCodigo">
+  </div>
+  <div class="form-group">
+    <label for="txtNombre">Nombre:</label>
+    <input type="text" class="form-control" id="txtNombre" [(ngModel)]="persona.nombre" />
+  </div>
+  <div class="form-group">
+    <label for="txtApellidoPaterno">Apellido Paterno:</label>
+    <input type="text" class="form-control" id="txtApellidoPaterno">
+  </div>
+  <div class="form-group">
+    <label for="txtApellidoMaterno">Apellido Materno:</label>
+    <input type="text" class="form-control" id="txtApellidoMaterno">
+  </div>
+  <div class="form-group">
+    <label for="txtDireccion">Dirección:</label>
+    <input type="text" class="form-control" id="txtDireccion">
+  </div>
+  <div class="form-group">
+    <label for="txtTelefono">Teléfono:</label>
+    <input type="text" class="form-control" id="txtTelefono">
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary" (click) = "grabar()">Grabar</button>
+    <button type="button" class="btn btn-primary">Cancelar</button>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 
 @font-face {
     font-family: 'Material Icons';
@@ -24,12 +24,17 @@
     -webkit-font-smoothing: antialiased;
 }
 
-* {
-    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif
-}
-
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
     transform: translateY(-1.28125em) translateZ(.001px);
-    /* font-weight: bold; */
-    font-size: .85em;
+    font-weight: bold;
+    font-size: .95em;
+}
+
+.mat-raised-button.mat-accent,
+.mat-raised-button.mat-primary {
+    border-radius: 5px;
+}
+
+* {
+    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif
 }
