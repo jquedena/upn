@@ -4,6 +4,7 @@ import pe.edu.upn.modelo.EntityPersona;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Estudiante
  */
+@WebServlet(urlPatterns = "/ServletPersona", name = "servletPersona")
 public class ServletPersona extends HttpServlet {
 
     /**
@@ -32,20 +34,17 @@ public class ServletPersona extends HttpServlet {
             //instanciar la entidad
             EntityPersona e = new EntityPersona();
 
-            //instanciar la clase CRUD
-            CrudPersona c = new CrudPersona();
-
             //obtener los ocntroles input
-            e.setCodigo(Integer.parseInt(request.getParameter("txtcod")));
             e.setNombre(request.getParameter("txtnom"));
-            e.setApellidos(request.getParameter("txtape"));
+            e.setApellidoPaterno(request.getParameter("txtapePat"));
+            e.setApellidoMaterno(request.getParameter("txtapeMat"));
             e.setDni(request.getParameter("txtdni"));
-            e.setTelefono(Integer.parseInt(request.getParameter("txttel")));
+            e.setTelefono(request.getParameter("txttel"));
             e.setDireccion(request.getParameter("txtdir"));
 
             //obtener mensaje de exito
-            String msj = c.insertar(e);
-            out.println("<h2><center>"+msj+"</center></h2>");
+            String msj = CrudPersona.insertar(e);
+            out.println("<h2><center>"+msj+"</center></h2><a href=\"index.html\">Volver al menú de opciones</a>");
 
         }
     }

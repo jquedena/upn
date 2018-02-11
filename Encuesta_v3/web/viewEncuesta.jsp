@@ -3,11 +3,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pregunta_Respuesta</title>
+        <title>Sistema de Encuesta - Corporación Vasco - Encuesta</title>
     </head>
     <body>
-    <center><h1>Agregar Nueva Pregunta_Respuesta</h1></center>
-    <form name="frmRegistrar" action="ServletPregunta_Respuesta">
+    <center><h1>Registro de Encuestas</h1></center>
+    <form name="frmRegistrar" action="ServletPregunta_Respuesta" method="post">
         <table>
             <tr>
                 <td>IdTipo_Control</td>
@@ -17,10 +17,7 @@
                 <td>Descripcion</td>
                 <td><input type="text" name="txtdescrip"></td>
             </tr>
-            
-
         </table>
-
     </form>
 </body>
 </html>

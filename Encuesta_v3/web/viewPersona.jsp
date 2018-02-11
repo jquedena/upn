@@ -7,23 +7,23 @@
     </head>
     <body>
     <center><h1>Registro de Personas</h1></center>
-    <form name="frmRegistrar" action="ServletPersona">
+    <form name="frmRegistrar" action="ServletPersona" method="post">
         <table>
             <tr>
-                <td>Codigo</td>
-                <td><input type="text" name="txtcod"></td>
-            </tr>
-            <tr>
                 <td>Nombre</td>
-                <td><input type="text" name="txtnom"></td>
+                <td><input type="text" name="txtnom" required></td>
             </tr>
             <tr>
-                <td>Apellidos</td>
-                <td><input type="text" name="txtape"></td>
+                <td>Apellido Paterno</td>
+                <td><input type="text" name="txtapePat" required></td>
+            </tr>
+            <tr>
+                <td>Apellido Materno</td>
+                <td><input type="text" name="txtapeMat" required></td>
             </tr>
             <tr>
                 <td>DNI</td>
-                <td><input type="text" name="txtdni"></td>
+                <td><input type="text" name="txtdni" required minlength="8" maxlength="8"></td>
             </tr>
             <tr>
                 <td>Télefono</td>
@@ -36,6 +36,7 @@
             <tr>
                 <td colspan="2">
                     <input type="submit" name="btngrabar" value="Grabar">
+                    <a href="index.html"><input type="button" value="Cancelar"></a>
                 </td>             
             </tr>
         </table>

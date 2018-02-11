@@ -1,12 +1,16 @@
 package pe.edu.upn.modelo;
+
 public class EntityPersona {
+
     //atributos
     private int codigo;
     private String nombre;
-    private String apellidos;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
     private String dni;
-    private int telefono;
-    private String Direccion;
+    private String telefono;
+    private String direccion;
+
     //metodos Get and Set
     public int getCodigo() {
         return codigo;
@@ -24,12 +28,20 @@ public class EntityPersona {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
     }
 
     public String getDni() {
@@ -40,30 +52,20 @@ public class EntityPersona {
         this.dni = dni;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public String getCorreo() {
-        return Direccion;
-    }
-
-    public void setCorreo(String correo) {
-        this.Direccion = Direccion;
-    }
-
     public String getDireccion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return direccion;
     }
 
-    public void setDireccion(String parameter) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
-    
-    
-    
+
 }

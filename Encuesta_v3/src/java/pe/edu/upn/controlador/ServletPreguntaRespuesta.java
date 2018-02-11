@@ -36,10 +36,10 @@ public class ServletPreguntaRespuesta extends HttpServlet {
             CrudPreguntaRespuesta c = new CrudPreguntaRespuesta();
 
             //obtener los ocntroles input
-            e.getIdPre_Res(Integer.parseInt(request.getParameter("txtidpre_res")));
-            e.getRpta(request.getParameter("txtrpta"));
-            e.getIdEnc_Res(request.getParameter("txtidenc_res"));
-            e.getIdPre(request.getParameter("txtidPreg"));
+//            e.getIdPre_Res(Integer.parseInt(request.getParameter("txtidpre_res")));
+//            e.getRpta(request.getParameter("txtrpta"));
+//            e.getIdEnc_Res(request.getParameter("txtidenc_res"));
+//            e.getIdPre(request.getParameter("txtidPreg"));
             
  
             //obtener mensaje de exito
