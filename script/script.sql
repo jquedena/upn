@@ -80,3 +80,12 @@ CREATE TABLE pregunta_respuesta (
   CONSTRAINT fk_pregunta_respuesta_encuesta_resultado1 FOREIGN KEY (id_encuesta_resultado) REFERENCES encuesta_respuesta (id_encuesta_resultado) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT fk_pregunta_respuesta_pregunta1 FOREIGN KEY (id_pregunta) REFERENCES pregunta (id_pregunta) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `vasco_encuesta`.`tipo_control`(`descripcion`) VALUES('Selección Multiple');
+INSERT INTO `vasco_encuesta`.`tipo_control`(`descripcion`) VALUES ('Casilla de Verificación');
+INSERT INTO `vasco_encuesta`.`tipo_control`(`descripcion`) VALUES ('Escala Lineal');
+INSERT INTO `vasco_encuesta`.`tipo_control`(`descripcion`) VALUES ('Parrafo');
+INSERT INTO `vasco_encuesta`.`tipo_control`(`descripcion`) VALUES ('Respuesta Corta');
+
+INSERT INTO `vasco_encuesta`.`inquilino`(`nombre`,`ruc`) VALUES ('Vasco', '12345678901');
+
