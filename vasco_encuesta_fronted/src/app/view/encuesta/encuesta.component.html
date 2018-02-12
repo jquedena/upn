@@ -1,65 +1,51 @@
-<div [ngClass]="[hideText]">
-  <ul class="nav">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-  </ul>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div id="app-menu-container">
+  <nav id="app-menu" class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">Vasco</a>
-    <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isAppMenuHorizontalCollapsed = !isAppMenuHorizontalCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div [ngbCollapse]="isNavbarCollapsed">
-      
-    </div>
-  </nav>
 
-  <div id="nav-bar-menu">
-    <ul class="nav flex-column">
-      <li class="nav-item" placement="bottom" ngbTooltip="Link">
+    <div id="app-menu-h" [ngbCollapse]="isAppMenuHorizontalCollapsed">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-sign-out"></i>
+            <span class="nav-link-text">Cerrar Sesión</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <ul id="app-menu-v" [ngClass]="[hideText]" class="nav flex-column">
+      <li class="nav-item" placement="right" ngbTooltip="Encuestas">
         <a class="nav-link" href="#">
-          <i class="fa fa-fw fa-link"></i>
-          <span class="nav-link-text">Link</span>
+          <i class="fa fa-fw fa-file"></i>
+          <span class="nav-link-text">Encuestas</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">
-          <i class="fa fa-fw fa-link"></i>
-          <span class="nav-link-text">Active</span>
-        </a>
-      </li>
-      <li class="nav-item">
+      <li class="nav-item" placement="right" ngbTooltip="Personas">
         <a class="nav-link" href="#">
-          <i class="fa fa-fw fa-link"></i>
-          <span class="nav-link-text">Link</span>
+          <i class="fa fa-fw fa-user"></i>
+          <span class="nav-link-text">Personas</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" placement="right" ngbTooltip="Resultados">
         <a class="nav-link" href="#">
-          <i class="fa fa-fw fa-link"></i>
-          <span class="nav-link-text">Link 1</span>
+          <i class="fa fa-fw fa-area-chart"></i>
+          <span class="nav-link-text">Resultados</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-  </div>
 
-  <ul class="nav flex-column sidenav-toggler">
-    <li class="nav-item">
-      <a class="nav-link text-center" (click)="clickToggleMenu()">
-        <i [ngClass]="[classButtonToggle]"></i>
-      </a>
-    </li>
-  </ul>
+    <ul [ngClass]="[hideText]" class="nav flex-column sidenav-toggler">
+      <li class="nav-item">
+        <a class="nav-link text-center" (click)="clickToggleMenu()">
+          <i [ngClass]="[classButtonToggle]"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div id="app-body-container" [ngClass]="[hideText]">
+fafadf
 </div>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncuestaComponent implements OnInit {
 
-  isNavbarCollapsed: boolean;
+  isAppMenuHorizontalCollapsed: boolean = false;
   isToogle: boolean = false;
   hideText: string = "nav-show";
   classButtonToggle: string = "fa fa-fw fa-angle-left";
