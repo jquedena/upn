@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PersonaComponent } from '../view/persona/persona.component';
-import { EncuestaComponent } from '../view/encuesta/encuesta.component';
+import { QuizComponent } from '../view/quiz/quiz.component';
 import { LayoutComponent } from '../view/layout/layout.component';
 
 const businessRoutes: Routes = [
@@ -10,7 +10,7 @@ const businessRoutes: Routes = [
     component: LayoutComponent,
     children: [
       {path: 'persona', component: PersonaComponent},
-      {path: 'encuesta', component: EncuestaComponent}
+      {path: 'encuesta', component: QuizComponent}
     ]
   }
 ];
