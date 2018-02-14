@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/02/2018 06:34:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pe.edu.upn.encuesta.entidad.Inquilino" table="inquilino" catalog="vasco_encuesta" optimistic-lock="version">
+        <id name="idInquilino" type="java.lang.Integer">
+            <column name="id_inquilino" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="500" />
+        </property>
+        <property name="ruc" type="string">
+            <column name="ruc" length="45" unique="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" />
+        </property>
+        <property name="logo" type="string">
+            <column name="logo" length="45" />
+        </property>
+        <property name="tema" type="string">
+            <column name="tema" length="45" />
+        </property>
+        <set name="encuestas" table="encuesta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_inquilino" not-null="true" />
+            </key>
+            <one-to-many class="pe.edu.upn.encuesta.entidad.Encuesta" />
+        </set>
+    </class>
+</hibernate-mapping>

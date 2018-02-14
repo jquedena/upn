@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/02/2018 06:34:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pe.edu.upn.encuesta.entidad.Encuesta" table="encuesta" catalog="vasco_encuesta" optimistic-lock="version">
+        <id name="idEncuesta" type="java.lang.Integer">
+            <column name="id_encuesta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="inquilino" class="pe.edu.upn.encuesta.entidad.Inquilino" fetch="select">
+            <column name="id_inquilino" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="10" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="10" />
+        </property>
+        <property name="duracion" type="java.lang.Integer">
+            <column name="duracion" />
+        </property>
+        <property name="clave" type="string">
+            <column name="clave" length="45" />
+        </property>
+        <set name="preguntas" table="pregunta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_encuesta" not-null="true" />
+            </key>
+            <one-to-many class="pe.edu.upn.encuesta.entidad.Pregunta" />
+        </set>
+        <set name="encuestaRespuestas" table="encuesta_respuesta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_encuesta" not-null="true" />
+            </key>
+            <one-to-many class="pe.edu.upn.encuesta.entidad.EncuestaRespuesta" />
+        </set>
+    </class>
+</hibernate-mapping>
