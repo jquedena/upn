@@ -2,24 +2,24 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="current_session_context_class">thread</property>
     <property name="format_sql">true</property>
-    <mapping resource="com/bbva/balsec/entidad/mapping/Parametro.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/Modulo.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/RolOpcion.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/AgentesEconomicos.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/ConsolidadoBsi.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/ArchivoModelo.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/BalanceComprobacion.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/LogTemp.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/Anexo1.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/OtrosDisponiblesRestringidos.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/ClienteNoSectorizado.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/Anexo8.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/ConsolidadoInputsHost.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/SaldoDiario.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/DetalleClienteSectorizado.hbm.xml"/>
-    <mapping resource="com/bbva/balsec/entidad/mapping/ParametroInputsHost.hbm.xml"/>
+
+    <mapping resource="pe/edu/upn/encuesta/entidad/Persona.hbm.xml"/>
+    <mapping resource="pe/edu/upn/encuesta/entidad/TipoControl.hbm.xml"/>
+    <mapping resource="pe/edu/upn/encuesta/entidad/Inquilino.hbm.xml"/>
+    <mapping resource="pe/edu/upn/encuesta/entidad/Encuesta.hbm.xml"/>
+    <mapping resource="pe/edu/upn/encuesta/entidad/Pregunta.hbm.xml"/>
+    <mapping resource="pe/edu/upn/encuesta/entidad/EncuestaRespuesta.hbm.xml"/>
+    <mapping resource="pe/edu/upn/encuesta/entidad/PreguntaRespuesta.hbm.xml"/>
+
+    <!--
+    <property name="hibernate.dialect"></property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vasco_encuesta?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    -->
   </session-factory>
 </hibernate-configuration>

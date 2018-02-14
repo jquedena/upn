@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/02/2018 06:34:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pe.edu.upn.encuesta.entidad.PreguntaRespuesta" table="pregunta_respuesta" catalog="vasco_encuesta" optimistic-lock="version">
+        <id name="idPreguntaRespuesta" type="java.lang.Integer">
+            <column name="id_pregunta_respuesta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="encuestaRespuesta" class="pe.edu.upn.encuesta.entidad.EncuestaRespuesta" fetch="select">
+            <column name="id_encuesta_resultado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pregunta" class="pe.edu.upn.encuesta.entidad.Pregunta" fetch="select">
+            <column name="id_pregunta" not-null="true" />
+        </many-to-one>
+        <property name="respuesta" type="string">
+            <column name="respuesta" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/02/2018 06:34:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pe.edu.upn.encuesta.entidad.EncuestaRespuesta" table="encuesta_respuesta" catalog="vasco_encuesta" optimistic-lock="version">
+        <id name="idEncuestaResultado" type="java.lang.Integer">
+            <column name="id_encuesta_resultado" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="encuesta" class="pe.edu.upn.encuesta.entidad.Encuesta" fetch="select">
+            <column name="id_encuesta" not-null="true" />
+        </many-to-one>
+        <many-to-one name="persona" class="pe.edu.upn.encuesta.entidad.Persona" fetch="select">
+            <column name="id_persona" not-null="true" />
+        </many-to-one>
+        <property name="fechaRegistro" type="date">
+            <column name="fecha_registro" length="10" />
+        </property>
+        <set name="preguntaRespuestas" table="pregunta_respuesta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_encuesta_resultado" not-null="true" />
+            </key>
+            <one-to-many class="pe.edu.upn.encuesta.entidad.PreguntaRespuesta" />
+        </set>
+    </class>
+</hibernate-mapping>

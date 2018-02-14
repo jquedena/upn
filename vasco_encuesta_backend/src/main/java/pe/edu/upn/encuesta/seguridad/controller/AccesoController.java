@@ -1,8 +1,7 @@
-package com.bbva.seguridad.controller;
+package pe.edu.upn.encuesta.seguridad.controller;
 
 import java.io.IOException;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,9 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pe.edu.upn.encuesta.service.IParametroService;
-import com.bbva.seguridad.bean.MenuUtil;
-import com.bbva.seguridad.bean.UsuarioAutentificado;
 import com.indra.web.controller.ErrorHandlerController;
 import com.indra.web.enums.TipoResultado;
 import com.indra.web.exception.HttpException;
@@ -30,10 +26,8 @@ import com.indra.web.model.RequestModel;
 @Scope("prototype")
 public class AccesoController extends ErrorHandlerController<Object> {
 
+    // TODO: Revisar
     private static final long serialVersionUID = 1L;
-
-    @Resource(name = "parametroService")
-    private IParametroService parametroService;
 
     /**
      * Mensaje de cierre de sesion
@@ -112,9 +106,9 @@ public class AccesoController extends ErrorHandlerController<Object> {
     @RequestMapping(value = "/menu")
     public void menu(HttpServletRequest request, HttpServletResponse response) throws IOException {
         configureResponse(response, request);
-        String menu = MenuUtil.dibujarMenu(((UsuarioAutentificado) usuario).getListaOpciones());
+//        String menu = MenuUtil.dibujarMenu(((UsuarioAutentificado) usuario).getListaOpciones());
         ServletOutputStream ou = response.getOutputStream();
-        ou.write(menu.getBytes());
+//        ou.write(menu.getBytes());
         adicionarError(response, "usuarioAutentificado", imprimir(usuario), HttpServletResponse.SC_OK);
     }
 
