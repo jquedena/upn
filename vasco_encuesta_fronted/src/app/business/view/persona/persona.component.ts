@@ -8,14 +8,14 @@ import { Persona } from '../../model/Persona';
 })
 export class PersonaComponent implements OnInit {
 
-  persona: Persona = {nombre: "Joel"};
+  persona: Persona = {};
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  grabar():void {
-    this.persona.nombre = "";
+  grabar(): void {
+    
   }
 }
