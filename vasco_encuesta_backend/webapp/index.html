@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="-1"/>
+    
+    <title>Balance Sectorial Institucional</title>
+
+    <link rel="stylesheet" type="text/css" href="resources/vendor/lib/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/vendor/lib/jqGrid/css/ui.jqgrid.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/vendor/lib/primeui/primeui-1.1.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/vendor/lib/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/theme/bbva/jquery-ui-1.10.1.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/vendor/lib/fgmenu/ui.fgmenu.css"/>
+    <link rel="stylesheet" type="text/css" href="src/css/application.css"/>
+</head>
+<body>
+    <div id="layout" class="hide">
+        <div id="head"></div>
+        <div id="menu" class="hide"></div>
+        <div id="body">
+            <div>
+                <div style="text-align:center">
+                	<img src="resources/img/marca/bienvenida.jpg" width="960" height="400" />	
+                </div>
+                <!--<img src="resources\img\marca\slider.jpg" style="border-radius:6px" width="955" height="400">-->
+            </div>
+        </div>
+        <div id="jqLoad" class="loading">
+            <div class="loadingContent">
+                <div class="loadingImage"></div>
+                <span class="loadingText">Cargando</span>
+            </div>
+        </div>
+    </div>
+    <div id="panelMensaje">
+        
+    </div>
+    
+    <!--
+    <script type="text/javascript" data-main="src/js/main.js" src="resources/vendor/lib/requirejs/require.js"></script>
+    -->
+
+    <script type="text/javascript" src="resources/vendor/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/jqueryui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/fgmenu/jquery.fgmenu.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/jqForm/jquery.form.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/jqGrid/js/minified/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/jqGrid/js/i18n/grid.locale-es.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/autoNumeric/autoNumeric.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/autoText/jq.autoText.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/mustache.js/mustache.js"></script>
+    <script type="text/javascript" src="resources/vendor/lib/primeui/primeui-1.1.js"></script>
+
+<script type="text/javascript">
+    var bootstrapButton = $.fn.button.noConflict(); // return $.fn.button to previously assigned value
+    $.fn.bootstrapBtn = bootstrapButton;
+</script>
+
+<!-- inject:js -->
+<script src="src/vendor/autocompletar.js"></script>
+<script src="src/vendor/support.js"></script>
+<script src="src/js/util/AjaxSupport.js"></script>
+<script src="src/js/util/Context.js"></script>
+<script src="src/js/util/DateUtil.js"></script>
+<script src="src/js/util/SemaforoHelper.js"></script>
+<script src="src/js/util/TemplateCache.js"></script>
+<script src="src/js/service/ArchivoService.js"></script>
+<script src="src/js/service/ClienteNoSectorizadoService.js"></script>
+<script src="src/js/service/ClienteSectorizadoService.js"></script>
+<script src="src/js/service/ConsolidadoService.js"></script>
+<script src="src/js/service/DescargaService.js"></script>
+<script src="src/js/service/FuenteService.js"></script>
+<script src="src/js/service/ParametroArchivoService.js"></script>
+<script src="src/js/service/ParametroInputService.js"></script>
+<script src="src/js/service/ParametroService.js"></script>
+<script src="src/js/service/PeriodoService.js"></script>
+<script src="src/js/controller/Controller.js"></script>
+<script src="src/js/controller/Dispatcher.js"></script>
+<script src="src/js/controller/FrontController.js"></script>
+<script src="src/js/controller/carga/ArchivoController.js"></script>
+<script src="src/js/controller/carga/MonitorController.js"></script>
+<script src="src/js/controller/configuracion/ParametroArchivoController.js"></script>
+<script src="src/js/controller/configuracion/ParametroController.js"></script>
+<script src="src/js/controller/configuracion/ParametroSistemaController.js"></script>
+<script src="src/js/controller/visualizacion/ClienteSectorizadoController.js"></script>
+<script src="src/js/controller/visualizacion/DescargaController.js"></script>
+<script src="src/js/controller/visualizacion/EntradaController.js"></script>
+<script src="src/js/controller/generacion/ClienteNoSectorizadoController.js"></script>
+<script src="src/js/controller/generacion/ConsolidadoController.js"></script>
+<script src="src/js/Configure.js"></script>
+<script src="src/js/main.js"></script>
+<!-- endinject -->
+
+</body>
+</html>

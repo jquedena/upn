@@ -7,9 +7,15 @@ import { SignOutComponent } from '../view/sign-out/sign-out.component';
 import { NotAuthorizedComponent } from '../view/not-authorized/not-authorized.component';
 
 const authRoutes: Routes = [
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'sign-out', component: SignOutComponent },
-  { path: 'not-authorized', component: NotAuthorizedComponent }
+  {
+    path: "",
+    children: [
+      { path: '', component: SignInComponent },
+      { path: 'sign-in', component: SignInComponent  },
+      { path: 'sign-out', component: SignOutComponent },
+      { path: 'not-authorized', component: NotAuthorizedComponent }
+    ]
+  }
 ];
 
 @NgModule({

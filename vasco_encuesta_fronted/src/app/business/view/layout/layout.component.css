@@ -32,7 +32,8 @@
   top: 54px;
   left: 250px;
   width: calc(100vw - 250px);
-  border: 1px solid red;
+  height: calc(100vh - 54px);
+  overflow: auto;
 }
 #app-body-container.nav-hidden {
   left: 60px;

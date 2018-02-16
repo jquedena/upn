@@ -1,15 +1,17 @@
-<div class="container">
-  <h3><i class="fa fa-user-circle" aria-hidden="true"></i> Inicio de Sesión</h3>
-  <div class="form-group">
-    <label for="txtUsuario">Ingrese su nombre de usuario:</label>
-    <input type="text" class="form-control" id="txtUsuario">
-  </div>
-  <div class="form-group">
-    <label for="txtPassword">Ingrese su contraseña:</label>
-    <input type="password" class="form-control" id="txtPassword">
-  </div>
-  <div>
-    <button type="button" class="btn btn-primary">Aceptar</button>
-    <button type="button" class="btn btn-primary">Cancelar</button>
-  </div>
+<div class="auth-container">
+  <div class="auth-container-group">
+    <h3><i class="fa fa-user-circle" aria-hidden="true"></i> Inicio de Sesión</h3>
+    <div class="form-group">
+      <label for="txtUsuario">Ingrese su nombre de usuario:</label>
+      <input type="text" class="form-control" id="txtUsuario">
+    </div>
+    <div class="form-group">
+      <label for="txtPassword">Ingrese su contraseña:</label>
+      <input type="password" class="form-control" id="txtPassword">
+    </div>
+    <div class="container-button">
+      <button type="button" class="btn btn-primary" (click)="signIn()">Aceptar</button>
+      <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
+    </div>
+</div>
 </div>

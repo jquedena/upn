@@ -218,14 +218,14 @@
                     <webResources>
                         <resource>
                             <filtering>true</filtering>
-                            <directory>front/webapp</directory>
+                            <directory>webapp</directory>
                             <includes>
                                 <include>**/web.xml</include>
                             </includes>
                         </resource>
                     </webResources>
-                    <warSourceDirectory>front/webapp</warSourceDirectory>
-                    <webXml>front/webapp/WEB-INF/web.xml</webXml>
+                    <warSourceDirectory>webapp</warSourceDirectory>
+                    <webXml>webapp/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
         </plugins>
@@ -249,7 +249,7 @@
                             <webResources>
                                 <resource>
                                     <filtering>true</filtering>
-                                    <directory>front/webapp</directory>
+                                    <directory>webapp</directory>
                                     <includes>
                                         <include>**/web.xml</include>
                                     </includes>
@@ -259,8 +259,8 @@
                                     <targetPath>WEB-INF/classes</targetPath>
                                 </resource>
                             </webResources>
-                            <warSourceDirectory>front/webapp</warSourceDirectory>
-                            <webXml>front/webapp/WEB-INF/web.xml</webXml>
+                            <warSourceDirectory>webapp</warSourceDirectory>
+                            <webXml>webapp/WEB-INF/web.xml</webXml>
                         </configuration>
                     </plugin>
                 </plugins>

@@ -11,7 +11,57 @@ import org.springframework.stereotype.Service;
 import pe.edu.upn.encuesta.entidad.Encuesta;
 import pe.edu.upn.encuesta.service.EncuestaService;
 
-@Service
+@Service("encuestaService")
 public class DbEncuestaService extends HibernateScrudService2<Encuesta, EntidadDAO2<Encuesta>> implements EncuestaService {
-    
+
+//    @Override
+//    public Paginator<Encuesta> buscar(Encuesta item) throws SinResultadosException {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Paginator<Encuesta> buscarPaginado(Encuesta item, Integer nroFilas, Integer pagina) throws SinResultadosException {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Paginator<Encuesta> buscarPaginado(Encuesta item, IUsuario<?> usuario, Integer nroFilas, Integer pagina) throws SinResultadosException {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Encuesta obtener(Long item) throws SinResultadosException {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Encuesta insertar(Encuesta o) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Encuesta actualizar(Encuesta item) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public List<Encuesta> actualizar(List<Encuesta> item) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void eliminar(Encuesta item) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void eliminar(Long id) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void eliminar(List<Encuesta> item) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//    
 }

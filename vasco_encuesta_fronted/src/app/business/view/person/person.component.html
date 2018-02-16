@@ -1,4 +1,16 @@
-<div class="container">
+<div class="body-container">
+  <h3>Personas</h3>
+  <div class="container">
+    <div class="row">
+
+    </div>
+  </div>
+
+  <ag-grid-angular #agGrid style="width: 500px; height: 115px;"
+    class="ag-theme-fresh"
+    [gridOptions]="gridOptions">
+  </ag-grid-angular>
+
   <div class="form-group">
     <label for="txtCodigo">Código:</label>
     <input type="text" class="form-control" id="txtCodigo">
@@ -27,8 +39,9 @@
     <label for="txtTelefono">Teléfono:</label>
     <input type="text" class="form-control" id="txtTelefono">
   </div>
-  <div>
+  <div class="container-button">
     <button type="button" class="btn btn-primary" (click) = "grabar()">Grabar</button>
     <button type="button" class="btn btn-primary">Cancelar</button>
   </div>
+  <!---->
 </div>

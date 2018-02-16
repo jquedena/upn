@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './auth/service/auth-guard.service';
 import { AuthService } from './auth/service/auth.service';
 import { ErrorHttpInterceptor } from './support/interceptor/error-http.interceptor';
+import { Error404Component } from './support/view/error404/error404.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
