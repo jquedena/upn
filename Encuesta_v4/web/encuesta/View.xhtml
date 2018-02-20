@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EncuestaViewDlg" widgetVar="EncuestaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEncuestaTitle}">
+            <h:form id="EncuestaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{encuestaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEncuestaLabel_idEncuesta}"/>
+                        <h:outputText value="#{encuestaController.selected.idEncuesta}" title="#{bundle.ViewEncuestaTitle_idEncuesta}"/>
+                        <h:outputText value="#{bundle.ViewEncuestaLabel_nombre}"/>
+                        <h:outputText value="#{encuestaController.selected.nombre}" title="#{bundle.ViewEncuestaTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewEncuestaLabel_fechaInicio}"/>
+                        <h:outputText value="#{encuestaController.selected.fechaInicio}" title="#{bundle.ViewEncuestaTitle_fechaInicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEncuestaLabel_fechaFin}"/>
+                        <h:outputText value="#{encuestaController.selected.fechaFin}" title="#{bundle.ViewEncuestaTitle_fechaFin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEncuestaLabel_duracion}"/>
+                        <h:outputText value="#{encuestaController.selected.duracion}" title="#{bundle.ViewEncuestaTitle_duracion}"/>
+                        <h:outputText value="#{bundle.ViewEncuestaLabel_clave}"/>
+                        <h:outputText value="#{encuestaController.selected.clave}" title="#{bundle.ViewEncuestaTitle_clave}"/>
+                        <h:outputText value="#{bundle.ViewEncuestaLabel_idInquilino}"/>
+                        <h:outputText value="#{encuestaController.selected.idInquilino}" title="#{bundle.ViewEncuestaTitle_idInquilino}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EncuestaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

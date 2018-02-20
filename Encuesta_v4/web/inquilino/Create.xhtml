@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InquilinoCreateDlg" widgetVar="InquilinoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateInquilinoTitle}">
+            <h:form id="InquilinoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inquilinoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateInquilinoLabel_idInquilino}" for="idInquilino" />
+                        <p:inputText id="idInquilino" value="#{inquilinoController.selected.idInquilino}" title="#{bundle.CreateInquilinoTitle_idInquilino}" required="true" requiredMessage="#{bundle.CreateInquilinoRequiredMessage_idInquilino}"/>
+                        <p:outputLabel value="#{bundle.CreateInquilinoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{inquilinoController.selected.nombre}" title="#{bundle.CreateInquilinoTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateInquilinoLabel_ruc}" for="ruc" />
+                        <p:inputText id="ruc" value="#{inquilinoController.selected.ruc}" title="#{bundle.CreateInquilinoTitle_ruc}" />
+                        <p:outputLabel value="#{bundle.CreateInquilinoLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{inquilinoController.selected.direccion}" title="#{bundle.CreateInquilinoTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateInquilinoLabel_logo}" for="logo" />
+                        <p:inputText id="logo" value="#{inquilinoController.selected.logo}" title="#{bundle.CreateInquilinoTitle_logo}" />
+                        <p:outputLabel value="#{bundle.CreateInquilinoLabel_tema}" for="tema" />
+                        <p:inputText id="tema" value="#{inquilinoController.selected.tema}" title="#{bundle.CreateInquilinoTitle_tema}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{inquilinoController.create}" value="#{bundle.Save}" update="display,:InquilinoListForm:datalist,:growl" oncomplete="handleSubmit(args,'InquilinoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InquilinoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

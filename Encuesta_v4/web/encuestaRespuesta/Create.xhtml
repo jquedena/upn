@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EncuestaRespuestaCreateDlg" widgetVar="EncuestaRespuestaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEncuestaRespuestaTitle}">
+            <h:form id="EncuestaRespuestaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{encuestaRespuestaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEncuestaRespuestaLabel_idEncuestaResultado}" for="idEncuestaResultado" />
+                        <p:inputText id="idEncuestaResultado" value="#{encuestaRespuestaController.selected.idEncuestaResultado}" title="#{bundle.CreateEncuestaRespuestaTitle_idEncuestaResultado}" required="true" requiredMessage="#{bundle.CreateEncuestaRespuestaRequiredMessage_idEncuestaResultado}"/>
+                        <p:outputLabel value="#{bundle.CreateEncuestaRespuestaLabel_fechaRegistro}" for="fechaRegistro" />
+                        <p:calendar id="fechaRegistro" pattern="MM/dd/yyyy" value="#{encuestaRespuestaController.selected.fechaRegistro}" title="#{bundle.EditEncuestaRespuestaTitle_fechaRegistro}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEncuestaRespuestaLabel_idEncuesta}" for="idEncuesta" />
+                        <p:selectOneMenu id="idEncuesta" value="#{encuestaRespuestaController.selected.idEncuesta}" required="true" requiredMessage="#{bundle.EditEncuestaRespuestaRequiredMessage_idEncuesta}">
+                            <f:selectItems value="#{encuestaController.itemsAvailableSelectOne}"
+                                           var="idEncuestaItem"
+                                           itemValue="#{idEncuestaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEncuestaRespuestaLabel_idPersona}" for="idPersona" />
+                        <p:selectOneMenu id="idPersona" value="#{encuestaRespuestaController.selected.idPersona}" required="true" requiredMessage="#{bundle.EditEncuestaRespuestaRequiredMessage_idPersona}">
+                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
+                                           var="idPersonaItem"
+                                           itemValue="#{idPersonaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{encuestaRespuestaController.create}" value="#{bundle.Save}" update="display,:EncuestaRespuestaListForm:datalist,:growl" oncomplete="handleSubmit(args,'EncuestaRespuestaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EncuestaRespuestaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

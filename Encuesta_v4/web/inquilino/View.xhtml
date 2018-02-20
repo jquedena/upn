@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InquilinoViewDlg" widgetVar="InquilinoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInquilinoTitle}">
+            <h:form id="InquilinoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inquilinoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInquilinoLabel_idInquilino}"/>
+                        <h:outputText value="#{inquilinoController.selected.idInquilino}" title="#{bundle.ViewInquilinoTitle_idInquilino}"/>
+                        <h:outputText value="#{bundle.ViewInquilinoLabel_nombre}"/>
+                        <h:outputText value="#{inquilinoController.selected.nombre}" title="#{bundle.ViewInquilinoTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewInquilinoLabel_ruc}"/>
+                        <h:outputText value="#{inquilinoController.selected.ruc}" title="#{bundle.ViewInquilinoTitle_ruc}"/>
+                        <h:outputText value="#{bundle.ViewInquilinoLabel_direccion}"/>
+                        <h:outputText value="#{inquilinoController.selected.direccion}" title="#{bundle.ViewInquilinoTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewInquilinoLabel_logo}"/>
+                        <h:outputText value="#{inquilinoController.selected.logo}" title="#{bundle.ViewInquilinoTitle_logo}"/>
+                        <h:outputText value="#{bundle.ViewInquilinoLabel_tema}"/>
+                        <h:outputText value="#{inquilinoController.selected.tema}" title="#{bundle.ViewInquilinoTitle_tema}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InquilinoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

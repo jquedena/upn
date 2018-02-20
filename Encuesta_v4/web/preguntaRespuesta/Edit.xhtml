@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PreguntaRespuestaEditDlg" widgetVar="PreguntaRespuestaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPreguntaRespuestaTitle}">
+            <h:form id="PreguntaRespuestaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{preguntaRespuestaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPreguntaRespuestaLabel_idPreguntaRespuesta}" for="idPreguntaRespuesta" />
+                        <p:inputText id="idPreguntaRespuesta" value="#{preguntaRespuestaController.selected.idPreguntaRespuesta}" title="#{bundle.EditPreguntaRespuestaTitle_idPreguntaRespuesta}" required="true" requiredMessage="#{bundle.EditPreguntaRespuestaRequiredMessage_idPreguntaRespuesta}"/>
+                        <p:outputLabel value="#{bundle.EditPreguntaRespuestaLabel_respuesta}" for="respuesta" />
+                        <p:inputText id="respuesta" value="#{preguntaRespuestaController.selected.respuesta}" title="#{bundle.EditPreguntaRespuestaTitle_respuesta}" />
+                        <p:outputLabel value="#{bundle.EditPreguntaRespuestaLabel_idEncuestaResultado}" for="idEncuestaResultado" />
+                        <p:selectOneMenu id="idEncuestaResultado" value="#{preguntaRespuestaController.selected.idEncuestaResultado}" required="true" requiredMessage="#{bundle.EditPreguntaRespuestaRequiredMessage_idEncuestaResultado}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{encuestaRespuestaController.itemsAvailableSelectOne}"
+                                           var="idEncuestaResultadoItem"
+                                           itemValue="#{idEncuestaResultadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPreguntaRespuestaLabel_idPregunta}" for="idPregunta" />
+                        <p:selectOneMenu id="idPregunta" value="#{preguntaRespuestaController.selected.idPregunta}" required="true" requiredMessage="#{bundle.EditPreguntaRespuestaRequiredMessage_idPregunta}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{preguntaController.itemsAvailableSelectOne}"
+                                           var="idPreguntaItem"
+                                           itemValue="#{idPreguntaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{preguntaRespuestaController.update}" value="#{bundle.Save}" update="display,:PreguntaRespuestaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PreguntaRespuestaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PreguntaRespuestaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
