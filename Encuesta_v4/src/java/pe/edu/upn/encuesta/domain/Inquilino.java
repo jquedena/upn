@@ -150,7 +150,7 @@ public class Inquilino implements Serializable {
 
     @Override
     public String toString() {
-        return "pe.edu.upn.encuesta.Inquilino[ idInquilino=" + idInquilino + " ]";
+        return nombre; // "pe.edu.upn.encuesta.Inquilino[ idInquilino=" + idInquilino + " ]";
     }
     
 }

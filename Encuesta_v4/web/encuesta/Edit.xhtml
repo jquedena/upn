@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{encuestaController.selected != null}">
                         <p:outputLabel value="#{bundle.EditEncuestaLabel_idEncuesta}" for="idEncuesta" />
-                        <p:inputText id="idEncuesta" value="#{encuestaController.selected.idEncuesta}" title="#{bundle.EditEncuestaTitle_idEncuesta}" required="true" requiredMessage="#{bundle.EditEncuestaRequiredMessage_idEncuesta}"/>
+                        <p:inputText id="idEncuesta" value="#{encuestaController.selected.idEncuesta}" title="#{bundle.EditEncuestaTitle_idEncuesta}" required="false" disabled="true" requiredMessage="#{bundle.EditEncuestaRequiredMessage_idEncuesta}"/>
                         <p:outputLabel value="#{bundle.EditEncuestaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{encuestaController.selected.nombre}" title="#{bundle.EditEncuestaTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditEncuestaLabel_fechaInicio}" for="fechaInicio" />

@@ -33,7 +33,7 @@
                                            itemValue="#{idTipoControlItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{preguntaController.update}" value="#{bundle.Save}" update="display,:PreguntaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PreguntaEditDialog');"/>
+                    <p:commandButton actionListener="#{preguntaController.update}" value="#{bundle.Save}" update="display,:EncuestaCreateForm:datalistPregunta,:growl" oncomplete="handleSubmit(args, 'PreguntaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PreguntaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

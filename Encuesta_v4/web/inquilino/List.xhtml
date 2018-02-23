@@ -64,10 +64,10 @@
                             <h:outputText value="#{item.tema}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{inquilinoController.prepareCreate}" update=":InquilinoCreateForm" oncomplete="PF('InquilinoCreateDialog').show()"/>
+                            <!--<p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{inquilinoController.prepareCreate}" update=":InquilinoCreateForm" oncomplete="PF('InquilinoCreateDialog').show()"/>-->
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":InquilinoViewForm" oncomplete="PF('InquilinoViewDialog').show()" disabled="#{empty inquilinoController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":InquilinoEditForm" oncomplete="PF('InquilinoEditDialog').show()" disabled="#{empty inquilinoController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{inquilinoController.destroy}" update=":growl,datalist" disabled="#{empty inquilinoController.selected}"/>
+                            <!--<p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{inquilinoController.destroy}" update=":growl,datalist" disabled="#{empty inquilinoController.selected}"/>-->
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

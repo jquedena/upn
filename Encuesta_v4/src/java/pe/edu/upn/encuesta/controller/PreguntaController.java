@@ -1,7 +1,5 @@
 package pe.edu.upn.encuesta.controller;
 
-import pe.edu.upn.encuesta.util.JsfUtil;
-import pe.edu.upn.encuesta.util.JsfUtil.PersistAction;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,6 +16,8 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import pe.edu.upn.encuesta.domain.Pregunta;
 import pe.edu.upn.encuesta.facade.PreguntaFacade;
+import pe.edu.upn.encuesta.util.JsfUtil;
+import pe.edu.upn.encuesta.util.JsfUtil.PersistAction;
 
 @Named("preguntaController")
 @SessionScoped
@@ -25,9 +25,10 @@ public class PreguntaController implements Serializable {
 
     @EJB
     private pe.edu.upn.encuesta.facade.PreguntaFacade ejbFacade;
+
     private List<Pregunta> items = null;
     private Pregunta selected;
-
+    
     public PreguntaController() {
     }
 

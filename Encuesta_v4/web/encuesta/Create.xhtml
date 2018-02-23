@@ -13,13 +13,13 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{encuestaController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateEncuestaLabel_idEncuesta}" for="idEncuesta" />
-                        <p:inputText id="idEncuesta" value="#{encuestaController.selected.idEncuesta}" title="#{bundle.CreateEncuestaTitle_idEncuesta}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_idEncuesta}"/>
+                        <p:inputText id="idEncuesta" value="#{encuestaController.selected.idEncuesta}" title="#{bundle.CreateEncuestaTitle_idEncuesta}" required="false" disabled="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_idEncuesta}"/>
                         <p:outputLabel value="#{bundle.CreateEncuestaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{encuestaController.selected.nombre}" title="#{bundle.CreateEncuestaTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateEncuestaLabel_fechaInicio}" for="fechaInicio" />
-                        <p:calendar id="fechaInicio" pattern="MM/dd/yyyy" value="#{encuestaController.selected.fechaInicio}" title="#{bundle.EditEncuestaTitle_fechaInicio}"  showOn="button"/>
+                        <p:calendar id="fechaInicio" pattern="MM/dd/yyyy" value="#{encuestaController.selected.fechaInicio}" title="#{bundle.EditEncuestaTitle_fechaInicio}" locale="es"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEncuestaLabel_fechaFin}" for="fechaFin" />
-                        <p:calendar id="fechaFin" pattern="MM/dd/yyyy" value="#{encuestaController.selected.fechaFin}" title="#{bundle.EditEncuestaTitle_fechaFin}"  showOn="button"/>
+                        <p:calendar id="fechaFin" pattern="MM/dd/yyyy" value="#{encuestaController.selected.fechaFin}" title="#{bundle.EditEncuestaTitle_fechaFin}" locale="es"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEncuestaLabel_duracion}" for="duracion" />
                         <p:inputText id="duracion" value="#{encuestaController.selected.duracion}" title="#{bundle.CreateEncuestaTitle_duracion}" />
                         <p:outputLabel value="#{bundle.CreateEncuestaLabel_clave}" for="clave" />
@@ -34,8 +34,13 @@
                     <p:commandButton actionListener="#{encuestaController.create}" value="#{bundle.Save}" update="display,:EncuestaListForm:datalist,:growl" oncomplete="handleSubmit(args,'EncuestaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EncuestaCreateDialog.hide()"/>
                 </h:panelGroup>
+            
+                <ui:include src="../pregunta/List.xhtml" />
             </h:form>
         </p:dialog>
 
+        <ui:include src="../pregunta/Create.xhtml"/>
+        <ui:include src="../pregunta/Edit.xhtml"/>
+        <ui:include src="../pregunta/View.xhtml"/>
     </ui:composition>
 </html>

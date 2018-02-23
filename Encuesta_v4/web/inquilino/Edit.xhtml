@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{inquilinoController.selected != null}">
                         <p:outputLabel value="#{bundle.EditInquilinoLabel_idInquilino}" for="idInquilino" />
-                        <p:inputText id="idInquilino" value="#{inquilinoController.selected.idInquilino}" title="#{bundle.EditInquilinoTitle_idInquilino}" required="true" requiredMessage="#{bundle.EditInquilinoRequiredMessage_idInquilino}"/>
+                        <p:inputText id="idInquilino" value="#{inquilinoController.selected.idInquilino}" title="#{bundle.EditInquilinoTitle_idInquilino}" required="false" disabled="true" requiredMessage="#{bundle.EditInquilinoRequiredMessage_idInquilino}"/>
                         <p:outputLabel value="#{bundle.EditInquilinoLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{inquilinoController.selected.nombre}" title="#{bundle.EditInquilinoTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditInquilinoLabel_ruc}" for="ruc" />

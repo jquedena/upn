@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_idPersona}" for="idPersona" />
-                        <p:inputText id="idPersona" value="#{personaController.selected.idPersona}" title="#{bundle.CreatePersonaTitle_idPersona}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_idPersona}"/>
+                        <p:inputText id="idPersona" value="#{personaController.selected.idPersona}" title="#{bundle.CreatePersonaTitle_idPersona}" required="false" disabled="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_idPersona}"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{personaController.selected.nombre}" title="#{bundle.CreatePersonaTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_apellidoPaterno}" for="apellidoPaterno" />

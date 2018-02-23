@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoControlController.selected != null}">
                         <p:outputLabel value="#{bundle.EditTipoControlLabel_idTipoControl}" for="idTipoControl" />
-                        <p:inputText id="idTipoControl" value="#{tipoControlController.selected.idTipoControl}" title="#{bundle.EditTipoControlTitle_idTipoControl}" required="true" requiredMessage="#{bundle.EditTipoControlRequiredMessage_idTipoControl}"/>
+                        <p:inputText id="idTipoControl" value="#{tipoControlController.selected.idTipoControl}" title="#{bundle.EditTipoControlTitle_idTipoControl}" required="false" disabled="true" requiredMessage="#{bundle.EditTipoControlRequiredMessage_idTipoControl}"/>
                         <p:outputLabel value="#{bundle.EditTipoControlLabel_descripcion}" for="descripcion" />
                         <p:inputText id="descripcion" value="#{tipoControlController.selected.descripcion}" title="#{bundle.EditTipoControlTitle_descripcion}" />
                     </p:panelGrid>
