@@ -10,16 +10,17 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "config": {
+    "angular": "7.2.8"
+  }
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.2.3",
-    "@angular/cdk": "^5.1.1",
+    "@angular/animations": "$npm_package_angular",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^5.2.0",
-    "@angular/material": "^5.1.1",
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
